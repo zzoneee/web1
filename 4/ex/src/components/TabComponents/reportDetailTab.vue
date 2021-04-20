@@ -246,7 +246,8 @@
                     params:{id:row[index].ex_ID}
                 }).then(res=> {
                     if(res.data.status == 200){
-                        let url = 'http://47.111.151.229/downLoad/report/' + res.data.data;
+                        // let url = 'http://47.111.151.229/downLoad/report/' + res.data.data;
+                        let url = 'http://127.0.0.1:8000/downLoad/report/' + res.data.data;
                         window.open(url);
                     }
                 }).catch( error =>{

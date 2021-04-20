@@ -845,4 +845,8 @@
         overflow-y: auto;
     }
 
+    /deep/ :focus {
+        outline: 0;
+    }
+
 </style>

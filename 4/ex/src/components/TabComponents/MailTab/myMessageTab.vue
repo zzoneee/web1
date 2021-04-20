@@ -320,7 +320,7 @@
                 }
                 // console.log(receiver + " " + iden);
                 post_closeChatBox(receiver, iden).then(res => {
-                    console.log(res.data.status);
+                    // console.log(res.data.status);
                     if(res.data.status == 200){
                         // console.log(res.data.data);
                         // this.noticeLists = res.data.data
@@ -588,6 +588,9 @@
     }
     .noRecentContactSearch{
         margin-left: 230px;
+    }
+    /deep/ :focus {
+        outline: 0;
     }
 
 </style>

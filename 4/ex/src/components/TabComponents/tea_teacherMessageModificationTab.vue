@@ -86,7 +86,7 @@
                                 url: "/api/teacher/editTeacherMessage",
                                 data: this.editMsg
                             }).then(res=> {
-                                console.log(res.data.status);
+                                // console.log(res.data.status);
                                 if(res.data.status == 200){
                                     this.$message.success("修改信息成功");
                                 }else{

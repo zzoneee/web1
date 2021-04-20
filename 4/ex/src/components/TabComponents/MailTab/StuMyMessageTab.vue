@@ -385,7 +385,7 @@
             },
             // 选择用户打开聊天框
             sendMsg(receiver, identity){
-                console.log(receiver + " " + identity);
+                // console.log(receiver + " " + identity);
                 post_stuOpenChatBox(receiver, identity).then(res => {
                     // console.log(res.data.status);
                     if(res.data.status == 200){
@@ -587,6 +587,9 @@
     }
     .noRecentContactSearch{
         margin-left: 230px;
+    }
+    /deep/ :focus {
+        outline: 0;
     }
 
 </style>

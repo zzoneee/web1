@@ -8,7 +8,6 @@
                             height="520"
                             border
                             id="tb"
-                            :header-cell-style="tableHeaderColor"
                             style="width: 100%">
                         <el-table-column align='center'
                                         prop="name"
@@ -59,7 +58,6 @@
                     height="400"
                     border
                     id="GroupNumberDetailTable"
-                    :header-cell-style="tableHeaderColor"
                     style="width: 100%">
                 <el-table-column align='center'
                                  prop="college"
@@ -300,7 +298,8 @@
                     params:{id:row[index].id}
                 }).then(res=> {
                     if(res.status == 200){
-                        let url = 'http://47.111.151.229/downLoad/report/' + res.data.data;
+                        // let url = 'http://47.111.151.229/downLoad/report/' + res.data.data;
+                        let url = 'http://127.0.0.1:8000/downLoad/report/' + res.data.data;
                         // console.log(row[index].id + "*** " + url + " ***");
                         window.open(url);
                     }

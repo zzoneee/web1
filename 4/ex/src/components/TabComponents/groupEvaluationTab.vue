@@ -6,7 +6,6 @@
                     height="520"
                     border
                     id="tb2"
-                    :header-cell-style="tableHeaderColor"
                     style="width: 100%">
                 <!-- <el-table-column align='center'
                                  prop="hp_ex_ID"
@@ -90,7 +89,7 @@
                 }).then(({ value }) => {
                     if(value<=100&&value>0)
                     {
-                        console.log(row[index].hp_ex_ID);
+                        // console.log(row[index].hp_ex_ID);
                         this.$axios({
                             method: 'post',
                             url: "/api/report/hpReportMark",
@@ -127,7 +126,8 @@
                     params:{id:row[index].hp_ex_ID}
                 }).then(res=> {
                     if(res.data.status == 200){
-                        let url = 'http://47.111.151.229/downLoad/report/' + res.data.data;
+                        // let url = 'http://47.111.151.229/downLoad/report/' + res.data.data;
+                        let url = 'http://127.0.0.1:8000/downLoad/report/' + res.data.data;
                         window.open(url);
                     }
                 }).catch( error =>{

@@ -109,7 +109,7 @@
                     if(res.data.status == 200){
                         // console.log(res.data.data);
                         this.noticeLists = res.data.data;
-                        console.log(this.noticeLists);
+                        // console.log(this.noticeLists);
                     }
                     else if(res.data.status == 403){
                         this.$router.replace('/stu_error');

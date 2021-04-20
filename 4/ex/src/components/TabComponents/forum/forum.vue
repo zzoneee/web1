@@ -613,7 +613,7 @@
                 return false;
             },
             searchPostClick(){
-                console.log(this.allPostLists);
+                // console.log(this.allPostLists);
                 if(this.isAtSearch){
                     // console.log((this.pageNo - 1) * this.pageSize,this.pageNo * this.pageSize);
                     // console.log(this.allSeaPostLists);
@@ -736,12 +736,7 @@
         overflow-x: hidden;
     }
     .postDrawerComment>>>.el-divider{
-        /* display:inline-block; */
         width:83.5%;
-        /* height:100%;		 */
-        /* margin:0 8px; */
-        /* vertical-align:middle; */
-        /* position:relative; */
         margin-left: 8.3%;
     }
     .postDrawerComment{
@@ -844,6 +839,13 @@
 
     .releasePost{
         margin-top: 20px;
+    }
+
+    /* .el-drawer /deep/ :focus {
+        outline: none;
+    } */
+    /deep/ :focus {
+        outline: 0;
     }
 
 </style>

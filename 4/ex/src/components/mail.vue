@@ -3,8 +3,9 @@
         <div class="header">
             <el-row :gutter="0">
                 <el-col>
-                    <button type="button" class="btn_setting"></button>
-                    <button type="button" class="btn_backManu" @click="toMenu"></button>
+                    <!-- <button type="button" class="btn_setting"></button> -->
+                    <!-- <button type="button" class="btn_backManu" @click="toMenu"></button> -->
+                    <el-button type="primary"  @click="toMenu" class="btn_backManu"> 返回</el-button>
                 </el-col>
             </el-row>
         </div>
@@ -138,15 +139,15 @@
         margin-left: 20px;
     }
     .btn_backManu{
-        background-image: url("../assets/btn_backManu2.jpg");
+        /* background-image: url("../assets/btn_backManu2.jpg"); */
         float:right;
         margin-right: 30px;
         /* margin-left: 1055px; */
-        width: 145px;
-        height: 38px;
-        background-color: transparent;
-        border-style: none;
-        outline:none;
+        width: 100px;
+        /* height: 38px; */
+        /* background-color: transparent; */
+        /* border-style: none; */
+        /* outline:none; */
         margin-top: 22px;
         margin-left: 20px;
     }

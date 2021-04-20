@@ -3,8 +3,9 @@
         <div class="header">
             <el-row :gutter="0">
                 <el-col>
-                    <button type="button" class="btn_setting"></button>
-                    <button type="button" class="btn_backManu" @click="toMenu"></button>
+                    <!-- <button type="button" class="btn_setting"></button> -->
+                    <!-- <button type="button" class="btn_backManu" @click="toMenu"></button> -->
+                    <el-button type="primary"  @click="toMenu" class="btn_backManu"> 返回</el-button>
                 </el-col>
             </el-row>
         </div>
@@ -21,9 +22,9 @@
                                     <span class="publishUser">发布人：{{item.user_id}}</span>
                                     <span class="publishTime">发布时间：{{item.time}}</span>
 
-                                    <el-popconfirm title="是否删除？" @confirm="deletePost(item.id)">
-                                        <el-button v-if="item.identity==1&&item.user_id==userId" slot="reference" style="float: right" type="danger" icon="el-icon-delete" circle size="mini"></el-button>
-                                    </el-popconfirm>
+                                    <!-- <el-popconfirm title="是否删除？" @confirm="deletePost(item.id)"> -->
+                                        <el-button @click="deletePost(item.id)" v-if="item.identity==1&&item.user_id==userId" style="float: right" type="danger" icon="el-icon-delete" circle size="mini"></el-button>
+                                    <!-- </el-popconfirm> -->
                                     <!-- <el-button type="primary" style="float: right; margin-right: 15px" size="mini">查看详情</el-button> -->
                                 </div>
                                 <div class="msgText">
@@ -118,9 +119,9 @@
                                 <p class="PostCommentPublishTime">{{item.time}}</p>
                             </el-col>
                             <el-col :span="2">
-                                <el-popconfirm title="是否删除？" @confirm="deleteComment(item.id)">
-                                    <el-button v-if="drawerPost.identity==1&&drawerPost.user_id==userId||item.identity==1&&item.user_id==userId" slot="reference" style="float: right" type="danger" icon="el-icon-delete" circle size="mini"></el-button>
-                                </el-popconfirm>
+                                <!-- <el-popconfirm title="是否删除？" @confirm="deleteComment(item.id)"> -->
+                                    <el-button @click="deleteComment(item.id)" v-if="drawerPost.identity==1&&drawerPost.user_id==userId||item.identity==1&&item.user_id==userId" style="float: right" type="danger" icon="el-icon-delete" circle size="mini"></el-button>
+                                <!-- </el-popconfirm> -->
                             </el-col>
                         </el-row>
                         <div class="postCommentMsg">
@@ -625,7 +626,7 @@
                 return false;
             },
             searchPostClick(){
-                console.log(this.allPostLists);
+                // console.log(this.allPostLists);
                 if(this.isAtSearch){
                     // console.log((this.pageNo - 1) * this.pageSize,this.pageNo * this.pageSize);
                     // console.log(this.allSeaPostLists);
@@ -887,16 +888,20 @@
         margin-left: 20px;
     }
     .btn_backManu{
-        background-image: url("../../../assets/btn_backManu2.jpg");
+        /* background-image: url("../assets/btn_backManu2.jpg"); */
         float:right;
         margin-right: 30px;
-        width: 145px;
-        height: 38px;
-        background-color: transparent;
-        border-style: none;
-        outline:none;
+        /* margin-left: 1055px; */
+        width: 100px;
+        /* height: 38px; */
+        /* background-color: transparent; */
+        /* border-style: none; */
+        /* outline:none; */
         margin-top: 22px;
         margin-left: 20px;
+    }
+    /deep/ :focus {
+        outline: 0;
     }
 
 </style>

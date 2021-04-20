@@ -73,8 +73,6 @@
                         height="490"
                         border
                         id="tb"
-                        :row-style="tableRowStyle"
-                        :header-cell-style="tableHeaderColor"
                         style="width: 100%">
                     <el-table-column align='center'
                                     prop="college"
@@ -520,21 +518,26 @@
             // 删除班级
             deleteClassBtn(){
                 // console.log(this.multipleSelection);
-                post_deleteClass(this.multipleSelection).then(res => {
-                    console.log(res.data.err);
-                    if(res.data.status == 200){
-                        this.$message.success("删除成功");
-                        this.getClassesInfo();
-                    }
-                    else if(res.data.status == 403){
-                        this.$router.replace('/tea_error')
-                    }
-                    else{
-                        this.$message.error("删除失败, "+res.data.msg);
-                    }
-                }).catch( error =>{
-                    console.log(error);
-                });
+                if(this.multipleSelection.length == 0){
+                    this.$message.error("请选择要删除的班级");
+                }
+                else{
+                    post_deleteClass(this.multipleSelection).then(res => {
+                        // console.log(res.data.err);
+                        if(res.data.status == 200){
+                            this.$message.success("删除成功");
+                            this.getClassesInfo();
+                        }
+                        else if(res.data.status == 403){
+                            this.$router.replace('/tea_error')
+                        }
+                        else{
+                            this.$message.error("删除失败, "+res.data.msg);
+                        }
+                    }).catch( error =>{
+                        console.log(error);
+                    });
+                }
             },
             // 查看班级详细信息
             toSeeDetialClassMsg(index, tableData){
@@ -543,7 +546,7 @@
                 this.curClass_name = tableData[index].class_name;
                 this.curPosition = 1;
                 this.curCollege = tableData[index].college;
-                console.log(this.curCollege);
+                // console.log(this.curCollege);
 
                 // page2
                 // 获取班级信息（表格）
@@ -778,15 +781,27 @@
             },
             // 点击导出按钮
             btnExportClick (rs) {
-                // 生成列名
-                let data = [{}]
-                for (let k in rs[0]) {
-                    data[0][k] = k
+                if(rs.length == 0){
+                    this.$message.error("无学生数据，导出失败");
                 }
-                data = data.concat(rs)
-                // console.table(data)
-        
-                this.exportExcel(data, '学生数据')
+                else{
+                    // 生成列名
+                    // let tableHeader = ['学院', '班级', '学号', '姓名', '电话号码', '团队', '承担角色'];
+                    let data = [{}]
+                    for (let k in rs[0]) {
+                        data[0][k] = k
+                        // console.log(k);
+                    }
+                    // for (let i = 0;i < tableHeader.length;i++) {
+                    //     let k = tableHeader[i];
+                    //     data[0][k] = k;
+                    //     console.log(k);
+                    // }
+                    data = data.concat(rs)
+                    // console.table(data)
+            
+                    this.exportExcel(data, '学生数据')
+                }
             },
             // 导入 Excel
             importExcel () {
@@ -885,7 +900,7 @@
                             if(res.data.status == 200){
                                 // 重新请求表格中的数据
                                 this.getClassMsg();
-                                this.$message.success("导入成功");
+                                this.$message.success("导入成功，这些用户的初始密码都为123456");
                                 this.loading = false;
                             }
                             else if(res.data.status == 403){
@@ -946,6 +961,7 @@
         
                 // 释放，用 URL.revokeObjectURL() 释放
                 setTimeout(() => URL.revokeObjectURL(tmpDown), 100)
+                this.$message.success("导出成功");
             },
             // 字符串转字符流
             s2ab (s) {
@@ -977,6 +993,9 @@
                 }
                 o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)))
                 return o
+            },
+            current(){
+
             },
         }
     }

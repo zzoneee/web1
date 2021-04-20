@@ -239,7 +239,7 @@
                 this.pageSize2 = 5;
                 // console.log(post);
                 get_stuReplyPost(post.post_id).then(res => {
-                    console.log(res.data.err);
+                    // console.log(res.data.err);
                     if(res.data.status == 200){
                         this.drawerPost = res.data.data;
                         // console.log(this.drawerPost);
@@ -627,5 +627,8 @@
         resize: none;/* 这个是去掉 textarea 下面拉伸的那个标志，如下图 */
         height: 300px;
         overflow-y: auto;
+    }
+    /deep/ :focus {
+        outline: 0;
     }
 </style>

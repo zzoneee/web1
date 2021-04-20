@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import loginPage from "../views/loginPage";
-import menu from "../views/menu2";
+import menu from "../views/menu";
 import report from '@/components/report.vue'
 import setting from '@/components/setting.vue'
 import mail from '@/components/mail.vue'
@@ -13,7 +13,6 @@ import tea_loginPage from "../views/tea_loginPage";
 import tea_info from '@/components/tea_info.vue'
 
 import tmp from '@/components/tmp.vue'
-import tmp2 from "@/components/TabComponents/tea_classMessageTab";
 
 import stu_error from "../views/error/stu_error";
 import tea_error from "../views/error/tea_error";
@@ -51,10 +50,6 @@ export default new Router({
     {
       path: '/tmp',
       component: tmp
-    },
-    {
-      path: '/tmp2',
-      component: tmp2
     },
     {
       path: '/stu_error',

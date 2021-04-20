@@ -51,40 +51,42 @@
                 </li>
             </ul>
 
-            <el-row :gutter="0">
-                <el-col :span="3" :offset="0">
-                    <el-button type="primary" class="addStu" @click="addStu()" icon="el-icon-circle-plus-outline">添加新队员</el-button>
-                </el-col>
-                <el-col :span="3">
-                    <el-button type="danger" class="quitTeam" @click="quitTeam()" icon="el-icon-remove-outline">退出团队</el-button>
-                </el-col>
-                <el-col :span="15">
-                    <!-- <nav aria-label="page_navigation" class="page-bar">
-                        <ul class="pagination">
-                            <li :class="pageNO<=1?'disabled':''" @click="pre_page()">
-                                <a aria-label="previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li :class="index==pageNO?'active':''" v-for="index in pageTotal" @click="curPage(index)">
-                                <a :class="qq">{{index}}</a>
-                            </li> 
-                            <li :class="pageNO>=pageTotal?'disabled':''" @click="next_page()">
-                                <a aria-label="next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav> -->
-                    <nav aria-label="page_navigation" class="page-bar">
-                        <el-pagination background layout="prev, pager, next" :total="numTotal" :page-size="pageSize"
-                        @prev-click="pre_page()"
-                        @next-click="next_page()"
-                        @current-change="curPage"
-                        :hide-on-single-page="pageTotal<=1"></el-pagination>
-                    </nav>
-                </el-col>
-            </el-row>
+            <div class="settingGroupInfoBottom">
+                <el-row :gutter="0">
+                    <el-col :span="6" :offset="0">
+                        <el-button type="primary" class="addStu" @click="addStu()" icon="el-icon-circle-plus-outline">添加新队员</el-button>
+                    </el-col>
+                    <el-col :span="6">
+                        <el-button type="danger" class="quitTeam" @click="quitTeam()" icon="el-icon-remove-outline">退出团队</el-button>
+                    </el-col>
+                    <el-col :span="12">
+                        <!-- <nav aria-label="page_navigation" class="page-bar">
+                            <ul class="pagination">
+                                <li :class="pageNO<=1?'disabled':''" @click="pre_page()">
+                                    <a aria-label="previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li :class="index==pageNO?'active':''" v-for="index in pageTotal" @click="curPage(index)">
+                                    <a :class="qq">{{index}}</a>
+                                </li> 
+                                <li :class="pageNO>=pageTotal?'disabled':''" @click="next_page()">
+                                    <a aria-label="next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav> -->
+                        <nav aria-label="page_navigation" class="page-bar">
+                            <el-pagination background layout="prev, pager, next" :total="numTotal" :page-size="pageSize"
+                            @prev-click="pre_page()"
+                            @next-click="next_page()"
+                            @current-change="curPage"
+                            :hide-on-single-page="pageTotal<=1"></el-pagination>
+                        </nav>
+                    </el-col>
+                </el-row>
+            </div>
 
         </el-form>
 
@@ -394,7 +396,7 @@
             },
             quitTeam(){
                 post_quitTeam().then(res => {
-                    console.log(res.data.status);
+                    // console.log(res.data.status);
                     if(res.data.status == 200){
                         // this.$message.success("退出团队成功");
                         this.$router.go(0);
@@ -521,6 +523,11 @@
         margin-bottom: 20px;
         float: right;
         margin-right: 103px;
+    }
+    .settingGroupInfoBottom{
+        position: absolute;
+        bottom: 0px;
+        margin-bottom: 155px;
     }
 
 </style>
